@@ -20,7 +20,11 @@ public class ReviewService {
 
     //Fonction pour récupérer toutes les avis
     public List<ReviewDto> findAllReviews() {
-        return this.reviewRepository.findAll().stream().map(review -> ReviewMapper.mapToDto(review)).collect(Collectors.toList());
+        return this.reviewRepository.
+                findAll()
+                .stream()
+                .map(review -> ReviewMapper.mapToDto(review))
+                .collect(Collectors.toList());
     }
 
     //Fonctions pour récupérer 1 avis via son ID
