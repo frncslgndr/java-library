@@ -3,9 +3,7 @@ package com.orobas.librairie.Controller;
 import com.orobas.librairie.DTO.BorrowGetDTO;
 import com.orobas.librairie.DTO.BorrowPostDTO;
 import com.orobas.librairie.DTO.BorrowPutDTO;
-import com.orobas.librairie.Entity.Borrow;
 import com.orobas.librairie.Service.BorrowService;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +16,11 @@ public class BorrowController {
 
     public BorrowController(BorrowService borrowService) {
         this.borrowService = borrowService;
+    }
+
+    @GetMapping("")
+    public List<BorrowGetDTO> getAll() {
+        return this.borrowService.getAll();
     }
 
     @GetMapping("/book/{book_id}")
@@ -36,8 +39,8 @@ public class BorrowController {
     }
 
     @PatchMapping("/return/{id}")
-    public void endBorrow(@PathVariable("id") Integer id, @RequestBody BorrowPutDTO borrowPutDTO) throws ChangeSetPersister.NotFoundException {
-        this.borrowService.update(id, borrowPutDTO);
+    public BorrowGetDTO endBorrow(@PathVariable("id") Integer id, @RequestBody BorrowPutDTO borrowPutDTO) throws Exception {
+        return this.borrowService.update(id, borrowPutDTO);
     }
 
 }
