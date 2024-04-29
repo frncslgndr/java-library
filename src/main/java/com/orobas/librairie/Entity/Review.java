@@ -29,8 +29,8 @@ public class Review {
 
     @Lob
     @Size(min = 15, max = 420, message = "Votre message doit contenir entre {min} et {max} caractères." )
-    @Column(name = "review", nullable = false)
-    private String review;
+    @Column(name = "content", nullable = false)
+    private String content;
 
     @Min(value = 1,  message = "Note minimale : {value}")
     @Max(value = 10, message = "Note maximale : {value}")
