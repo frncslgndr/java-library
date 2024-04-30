@@ -63,7 +63,7 @@ public class SecurityConfig {
     // Permet d'ignorer la sécurité sur certaines routes
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer(){
-        return (web) -> web.ignoring().requestMatchers("/api/security/resetPassword", "/login", "/", "/swagger-ui/**", "/v3/api-docs/**");
+        return (web) -> web.ignoring().requestMatchers("/api/security/resetPassword", "/login", "/", "/swagger-ui/**", "/v3/api-docs/**", "/graphiql**");
     }
 
     // Permet de créer un BCrypt Password Encoder et de définir le niveau de hashage

@@ -18,6 +18,9 @@ public class ReviewService {
         this.reviewRepository = reviewRepository;
     }
 
+    public List<Review> findAll() {
+        return this.reviewRepository.findAll();
+    }
     //Fonction pour récupérer toutes les avis
     public List<ReviewDto> findAllReviews() {
         return this.reviewRepository.

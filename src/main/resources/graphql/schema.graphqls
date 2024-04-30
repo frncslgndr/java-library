@@ -1,0 +1,38 @@
+type Query {
+    authors: [Author]
+    authorById(id: ID): Author
+    books: [Book]
+    bookById(id: ID): Book
+    borrows: [Borrow]
+    borrowsByUser(user_id: ID): [Borrow]
+    borrowsByBook(book_id: ID): [Borrow]
+    borrowById(id: ID): Borrow
+    reviews: [Review]
+    reviewsByBook(book_id: ID): [Review]
+    reviewsByUser(user_id: ID): [Review]
+    reviewById(id: ID): Review
+}
+
+type Author {
+    id: ID
+    firstName: String
+    lastName: String
+}
+
+type Book {
+    id: ID
+    name: String
+    pageCount: Int
+    author: Author
+}
+
+type Borrow {
+    id: ID
+    startAt: LocalDate
+}
+
+type Review {
+    id: ID
+}
+
+scalar LocalDate

@@ -19,6 +19,10 @@ import java.util.stream.Collectors;
 public class BorrowService {
     private BorrowRepository borrowRepository;
 
+    public List<Borrow> findAll() {
+        return this.borrowRepository.findAll();
+    }
+
     public List<BorrowGetDTO> getAll() {
         return this.borrowRepository.findAll().stream().map(BorrowGetMapper::mapToDto).collect(Collectors.toList());
     }
